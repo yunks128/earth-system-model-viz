@@ -12,7 +12,7 @@ const url = require('url');
 
 class DevServer {
   constructor(options = {}) {
-    this.port = options.port || 3000;
+    this.port = options.port || 3001;
     this.host = options.host || 'localhost';
     this.srcDir = path.join(__dirname, '..', 'src');
     this.watchedFiles = new Set();
@@ -25,12 +25,13 @@ class DevServer {
     this.server = http.createServer((req, res) => this.handleRequest(req, res));
     
     this.server.listen(this.port, this.host, () => {
-      console.log(`🌐 Server running at http://${this.host}:${this.port}`);
+      console.log(`🌐 Server running at http://${this.host}:${this.port}/earth-system-model-viz/`);
       console.log(`📁 Serving files from: ${this.srcDir}`);
       console.log('🔄 Live reload enabled');
       console.log('\n📋 Available commands:');
       console.log('  - Press Ctrl+C to stop');
       console.log('  - Visit the URL above to view the application');
+      console.log(`  - Root redirect: http://${this.host}:${this.port}/ → http://${this.host}:${this.port}/earth-system-model-viz/`);
     });
 
     // Setup file watching for live reload
@@ -50,9 +51,28 @@ class DevServer {
     const parsedUrl = url.parse(req.url, true);
     let filePath = parsedUrl.pathname;
 
-    // Handle root path
+    // Handle GitHub Pages path structure
     if (filePath === '/') {
-      filePath = '/index.html';
+      // Redirect root to the GitHub Pages path
+      res.writeHead(302, { 'Location': '/earth-system-model-viz/' });
+      res.end();
+      return;
+    }
+
+    // Handle the GitHub Pages base path
+    if (filePath.startsWith('/earth-system-model-viz')) {
+      // Remove the base path to get the actual file path
+      filePath = filePath.substring('/earth-system-model-viz'.length);
+      
+      // Handle root of the app
+      if (filePath === '' || filePath === '/') {
+        filePath = '/index.html';
+      }
+    } else {
+      // If not under the base path, redirect to it
+      res.writeHead(302, { 'Location': `/earth-system-model-viz${filePath}` });
+      res.end();
+      return;
     }
 
     // Handle live reload endpoint
