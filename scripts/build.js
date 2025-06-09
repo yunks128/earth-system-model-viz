@@ -75,6 +75,30 @@ class Builder {
       this.buildTime
     );
     
+    // Replace individual CSS files with combined file
+    html = html.replace(
+      /<link rel="stylesheet" href="styles\/[^"]+\.css"[^>]*>/g,
+      ''
+    );
+    
+    // Replace individual script files with combined file
+    html = html.replace(
+      /<script src="scripts\/[^"]+\.js"[^>]*><\/script>/g,
+      ''
+    );
+    
+    // Add combined CSS file
+    html = html.replace(
+      '</head>',
+      '    <link rel="stylesheet" href="style.css">\n</head>'
+    );
+    
+    // Add combined JS file before closing body tag
+    html = html.replace(
+      '</body>',
+      '    <script src="script.js"></script>\n</body>'
+    );
+    
     // Minify HTML
     const minified = await minifyHTML(html, {
       removeComments: true,
