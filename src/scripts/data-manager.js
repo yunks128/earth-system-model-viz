@@ -6,7 +6,7 @@
 class DataManager {
   constructor() {
     this.cache = new Map();
-    this.dataUrl = 'assets/data/earth-system-data.json';
+    this.dataUrl = 'data/earth-system-data.json';
   }
   
   /**

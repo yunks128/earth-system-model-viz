@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('📊 Processing data files...');
     
     const dataDir = path.join(this.srcDir, 'data');
-    const outputDataDir = path.join(this.docsDir, 'assets', 'data');
+    const outputDataDir = path.join(this.docsDir, 'data');
     
     await fs.ensureDir(outputDataDir);
     

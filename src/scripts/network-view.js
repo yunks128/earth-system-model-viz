@@ -42,8 +42,8 @@ class NetworkView {
     if (!this.canvas) return;
     
     const container = this.canvas.parentElement;
-    this.width = container.clientWidth || 1400;  // Increased default width
-    this.height = Math.max(container.clientHeight || 1000, 1000);  // Increased default height
+    this.width = container.clientWidth || 1200;
+    this.height = Math.max(container.clientHeight || 800, 800);
     
     this.canvas.width = this.width * window.devicePixelRatio;
     this.canvas.height = this.height * window.devicePixelRatio;
