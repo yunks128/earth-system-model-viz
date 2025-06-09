@@ -1,0 +1,531 @@
+/**
+ * Responsive CSS for Earth System Model Visualization
+ */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .interactive-controls {
+    gap: 18px;
+  }
+  
+  .filter-buttons {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 9px 18px;
+    font-size: 13px;
+  }
+  
+  .view-toggle .view-btn {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+  
+  .models-overview {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  
+  .model-card {
+    padding: 20px;
+  }
+  
+  .model-card .count {
+    font-size: 2.2rem;
+  }
+  
+  .model-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .stats-bar {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+  }
+  
+  .stat-item {
+    padding: 16px;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.8rem;
+  }
+  
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  
+  .modal-content {
+    max-width: 500px;
+    margin: 0 15px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .header {
+    padding: 20px 0;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .header p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  
+  .interactive-controls {
+    gap: 15px;
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+  
+  .search-box {
+    padding: 12px 45px 12px 16px;
+    font-size: 15px;
+  }
+  
+  .filter-buttons {
+    gap: 6px;
+    justify-content: center;
+  }
+  
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  
+  .view-toggle {
+    padding: 4px;
+  }
+  
+  .view-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .btn-icon {
+    display: block;
+  }
+  
+  .models-overview {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 25px 0;
+  }
+  
+  .model-card {
+    padding: 18px;
+  }
+  
+  .model-card .count {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+  
+  .model-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .model-card p {
+    font-size: 0.85rem;
+  }
+  
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 15px 0;
+  }
+  
+  .stat-item {
+    padding: 14px;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+  
+  .stat-item p {
+    font-size: 0.8rem;
+  }
+  
+  .content {
+    padding: 25px 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 25px;
+  }
+  
+  .category-header {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+  }
+  
+  .category-count {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+  
+  .variable-item {
+    padding: 15px 20px;
+  }
+  
+  .variable-name {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .variable-meta {
+    gap: 6px;
+  }
+  
+  .variable-sources {
+    font-size: 0.85rem;
+  }
+  
+  .model-tag {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .modal {
+    padding: 10px;
+  }
+  
+  .modal-content {
+    max-width: 100%;
+    max-height: 90vh;
+    margin: 0;
+  }
+  
+  .modal-header {
+    padding: 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.3rem;
+  }
+  
+  .close-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.8rem;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .modal-actions {
+    padding: 15px 20px 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .modal-btn {
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  .footer {
+    padding: 25px 0;
+    margin-top: 40px;
+  }
+  
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-links {
+    margin-top: 12px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .footer-links a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Network View Mobile */
+  .network-view {
+    padding: 15px;
+    margin-top: 25px;
+  }
+  
+  .network-controls {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .network-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  #networkCanvas {
+    height: 350px;
+  }
+  
+  .network-legend {
+    margin-top: 15px;
+    padding: 15px;
+  }
+  
+  .network-legend h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  
+  .legend-items {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .legend-item {
+    font-size: 0.85rem;
+  }
+  
+  /* Table View Mobile */
+  .table-view {
+    padding: 15px;
+    margin-top: 25px;
+  }
+  
+  .table-controls {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: stretch;
+  }
+  
+  .table-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  #sortBy {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .data-table {
+    font-size: 0.8rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 10px 8px;
+  }
+  
+  .data-table th {
+    font-size: 0.75rem;
+  }
+  
+  /* Error Message Mobile */
+  .error-content {
+    padding: 30px 20px;
+    margin: 15px;
+  }
+  
+  .error-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .error-content p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .error-retry {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .search-box {
+    padding: 10px 40px 10px 14px;
+    font-size: 14px;
+  }
+  
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .view-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .model-card {
+    padding: 15px;
+  }
+  
+  .model-card .count {
+    font-size: 1.8rem;
+  }
+  
+  .model-card h3 {
+    font-size: 1rem;
+  }
+  
+  .stats-bar {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-item {
+    padding: 12px;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.4rem;
+  }
+  
+  .category-header {
+    padding: 14px 16px;
+  }
+  
+  .category-title {
+    font-size: 1.1rem;
+  }
+  
+  .variable-item {
+    padding: 12px 16px;
+  }
+  
+  .variable-name {
+    font-size: 0.95rem;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  
+  .modal-body {
+    padding: 16px;
+  }
+  
+  #networkCanvas {
+    height: 300px;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 8px 6px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .loading-screen,
+  .interactive-controls,
+  .network-view,
+  .error-message,
+  .modal {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .container {
+    box-shadow: none !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  
+  .header {
+    border-bottom: 2px solid #000 !important;
+  }
+  
+  .header h1 {
+    color: black !important;
+    -webkit-text-fill-color: black !important;
+  }
+  
+  .category-card {
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+  
+  .category-header {
+    background: #f0f0f0 !important;
+    color: black !important;
+  }
+  
+  .variable-item {
+    border-bottom: 1px solid #ccc !important;
+  }
+  
+  .model-tag {
+    border: 1px solid #000 !important;
+    background: white !important;
+    color: black !important;
+  }
+}

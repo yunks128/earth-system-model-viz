@@ -1,0 +1,16 @@
+{
+  "name": "Earth System Model Data Assimilation Visualization",
+  "short_name": "ESM Viz",
+  "description": "Interactive visualization of Earth system model data assimilation",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "icons": [
+    {
+      "src": "assets/images/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

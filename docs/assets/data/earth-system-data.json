@@ -1,0 +1,999 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "buildTime": "2025-06-09T20:50:06.980Z",
+    "totalVariables": 44
+  },
+  "models": [
+    {
+      "name": "ECCO",
+      "fullName": "Estimating the Circulation and Climate of the Ocean",
+      "description": "A global ocean state estimation system that combines ocean general circulation models with observational data",
+      "domain": "Ocean & Sea Ice",
+      "institution": "NASA/JPL",
+      "website": "https://ecco-group.org/",
+      "variables": 10
+    },
+    {
+      "name": "ISSM",
+      "fullName": "Ice Sheet System Model",
+      "description": "Simulates ice sheet dynamics, sea level changes, and solid Earth processes",
+      "domain": "Ice Sheet & Land Motion",
+      "institution": "UCI/JPL",
+      "website": "https://issm.jpl.nasa.gov/",
+      "variables": 12
+    },
+    {
+      "name": "CARDAMOM",
+      "fullName": "Carbon Data Model Framework",
+      "description": "Terrestrial carbon cycle modeling framework for data assimilation",
+      "domain": "Carbon Cycle",
+      "institution": "University of Edinburgh/NASA",
+      "website": "https://www.cardamom.org/",
+      "variables": 11
+    },
+    {
+      "name": "CMS-FLUX",
+      "fullName": "Carbon Monitoring System Flux",
+      "description": "Atmospheric carbon flux estimation and monitoring system",
+      "domain": "Atmospheric Carbon",
+      "institution": "NASA",
+      "website": "https://carbon.nasa.gov/",
+      "variables": 3
+    },
+    {
+      "name": "MOMO-CHEM",
+      "fullName": "Modeling of Atmospheric Chemistry",
+      "description": "Air quality and atmospheric composition modeling system",
+      "domain": "Atmospheric Chemistry",
+      "institution": "NASA/GSFC",
+      "website": "https://gmao.gsfc.nasa.gov/",
+      "variables": 8
+    }
+  ],
+  "categories": [
+    {
+      "name": "Ocean and Sea Ice Variables",
+      "description": "Variables related to ocean circulation, temperature, salinity, and sea ice properties",
+      "color": "#4facfe",
+      "variables": 10
+    },
+    {
+      "name": "Land and Terrestrial Variables",
+      "description": "Variables related to ice sheets, land motion, and terrestrial processes",
+      "color": "#43e97b",
+      "variables": 12
+    },
+    {
+      "name": "Atmospheric Composition",
+      "description": "Variables related to atmospheric chemistry and air quality",
+      "color": "#fa709a",
+      "variables": 8
+    },
+    {
+      "name": "Carbon Cycle Components",
+      "description": "Variables related to carbon fluxes, vegetation, and biogeochemical cycles",
+      "color": "#fee140",
+      "variables": 11
+    },
+    {
+      "name": "Climate and Reanalysis",
+      "description": "Meteorological and climate reanalysis products",
+      "color": "#a8edea",
+      "variables": 3
+    }
+  ],
+  "variables": [
+    {
+      "id": "ssh",
+      "variable": "Sea Surface Height",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "ERS-1/2",
+        "TOPEX/Poseidon",
+        "GFO-1",
+        "JASON-1",
+        "JASON-2",
+        "JASON-3",
+        "ENVISAT1",
+        "CryoSat-2",
+        "SARAL",
+        "Sentinel-6a"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "meters",
+      "description": "Height of the sea surface relative to a reference geoid",
+      "applications": [
+        "Ocean circulation",
+        "Sea level monitoring",
+        "Climate studies"
+      ]
+    },
+    {
+      "id": "oma",
+      "variable": "Ocean Mass Anomaly",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "GRACE",
+        "GRACE-FO"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "kg/m²",
+      "description": "Changes in ocean mass distribution",
+      "applications": [
+        "Ocean circulation",
+        "Sea level budget",
+        "Water cycle"
+      ]
+    },
+    {
+      "id": "sst",
+      "variable": "Sea Surface Temperature",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "NOAA-11 AVHRR",
+        "NOAA-12 AVHRR",
+        "NOAA-16 AVHRR",
+        "NOAA-17 AVHRR",
+        "NOAA-19 AVHRR",
+        "METOP-A",
+        "METOP-B"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "°C",
+      "description": "Temperature of the sea surface",
+      "applications": [
+        "Climate monitoring",
+        "Ocean-atmosphere interactions",
+        "Weather forecasting"
+      ]
+    },
+    {
+      "id": "sss",
+      "variable": "Sea Surface Salinity",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "AQUARIUS/SAC-D",
+        "SMOS",
+        "SMAP"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "psu",
+      "description": "Salinity of the sea surface",
+      "applications": [
+        "Ocean circulation",
+        "Water cycle",
+        "Climate studies"
+      ]
+    },
+    {
+      "id": "sic",
+      "variable": "Sea Ice Concentration",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "DMSP-F11 SSM/I",
+        "DMSP-F13 SSM/I",
+        "DMSP-F17 SSM/I",
+        "SSMIS"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "fraction",
+      "description": "Fraction of sea surface covered by ice",
+      "applications": [
+        "Climate monitoring",
+        "Arctic/Antarctic studies",
+        "Navigation"
+      ]
+    },
+    {
+      "id": "sif",
+      "variable": "Sea-ice Freeboard",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "ICESat",
+        "ICESat-2"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "meters",
+      "description": "Height of sea ice above sea level",
+      "applications": [
+        "Ice thickness estimation",
+        "Climate monitoring",
+        "Arctic studies"
+      ]
+    },
+    {
+      "id": "obp",
+      "variable": "Ocean Bottom Pressure",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "GRACE",
+        "GRACE-FO"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "Pa",
+      "description": "Pressure at the ocean bottom",
+      "applications": [
+        "Ocean circulation",
+        "Deep water formation",
+        "Mass transport"
+      ]
+    },
+    {
+      "id": "sit",
+      "variable": "Sea-ice Thickness",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "ICESat",
+        "ICESat-2"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "meters",
+      "description": "Thickness of sea ice",
+      "applications": [
+        "Climate monitoring",
+        "Arctic studies",
+        "Ice volume estimation"
+      ]
+    },
+    {
+      "id": "ohc",
+      "variable": "Ocean Heat Content",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "ARGO",
+        "CTD"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "J/m²",
+      "description": "Heat content of the ocean",
+      "applications": [
+        "Climate monitoring",
+        "Ocean warming",
+        "Heat transport"
+      ]
+    },
+    {
+      "id": "os",
+      "variable": "Ocean Salinity",
+      "category": "Ocean and Sea Ice Variables",
+      "sources": [
+        "ARGO",
+        "CTD"
+      ],
+      "models": [
+        "ECCO"
+      ],
+      "units": "psu",
+      "description": "Salinity throughout the ocean water column",
+      "applications": [
+        "Ocean circulation",
+        "Water mass properties",
+        "Climate studies"
+      ]
+    },
+    {
+      "id": "rsl",
+      "variable": "Relative Sea Level",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "Tide Gauge"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "meters",
+      "description": "Sea level relative to local land surface",
+      "applications": [
+        "Sea level rise",
+        "Coastal studies",
+        "Land subsidence"
+      ]
+    },
+    {
+      "id": "lm",
+      "variable": "Land Motion",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "GPS",
+        "InSAR"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "mm/year",
+      "description": "Vertical and horizontal motion of land surface",
+      "applications": [
+        "Glacial isostatic adjustment",
+        "Tectonics",
+        "Sea level studies"
+      ]
+    },
+    {
+      "id": "pm",
+      "variable": "Polar Motion",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "VLBI",
+        "SLR",
+        "GPS"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "arcseconds",
+      "description": "Motion of Earth's rotation axis",
+      "applications": [
+        "Earth rotation",
+        "Mass redistribution",
+        "Reference frame"
+      ]
+    },
+    {
+      "id": "iv",
+      "variable": "Ice Velocity",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "Landsat",
+        "Sentinel-1",
+        "Sentinel-2"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "m/year",
+      "description": "Velocity of ice sheet and glacier motion",
+      "applications": [
+        "Ice dynamics",
+        "Mass balance",
+        "Sea level projection"
+      ]
+    },
+    {
+      "id": "ise",
+      "variable": "Ice Sheet Elevation",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "ICESat",
+        "ICESat-2",
+        "GLAS"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "meters",
+      "description": "Elevation of ice sheet surface",
+      "applications": [
+        "Ice volume",
+        "Mass balance",
+        "Climate monitoring"
+      ]
+    },
+    {
+      "id": "it",
+      "variable": "Ice Thickness",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "Operation IceBridge",
+        "CReSIS"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "meters",
+      "description": "Thickness of ice sheets and glaciers",
+      "applications": [
+        "Ice volume",
+        "Bedrock topography",
+        "Dynamics modeling"
+      ]
+    },
+    {
+      "id": "smb",
+      "variable": "SMB",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "RACMO",
+        "MAR",
+        "HIRHAM"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "kg/m²/year",
+      "description": "Surface Mass Balance of ice sheets",
+      "applications": [
+        "Mass balance",
+        "Climate forcing",
+        "Sea level projection"
+      ]
+    },
+    {
+      "id": "of",
+      "variable": "Ocean Forcing",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "WOA",
+        "ECCO"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "various",
+      "description": "Ocean temperature and circulation forcing ice sheets",
+      "applications": [
+        "Ice-ocean interaction",
+        "Melt rates",
+        "Dynamics modeling"
+      ]
+    },
+    {
+      "id": "ghf",
+      "variable": "Geothermal Heat Flux",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "Various sources"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "mW/m²",
+      "description": "Heat flux from Earth's interior",
+      "applications": [
+        "Basal melting",
+        "Ice dynamics",
+        "Thermal modeling"
+      ]
+    },
+    {
+      "id": "se",
+      "variable": "Solid Earth",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "Various sources"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "various",
+      "description": "Solid Earth deformation and properties",
+      "applications": [
+        "Glacial isostatic adjustment",
+        "Tectonics",
+        "Reference frame"
+      ]
+    },
+    {
+      "id": "lic",
+      "variable": "Land-ice Calving",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "Landsat",
+        "Sentinel-1",
+        "Sentinel-2"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "kg/year",
+      "description": "Mass loss through iceberg calving",
+      "applications": [
+        "Mass balance",
+        "Ice dynamics",
+        "Sea level contribution"
+      ]
+    },
+    {
+      "id": "gia",
+      "variable": "Glacial Isostatic Adjustment",
+      "category": "Land and Terrestrial Variables",
+      "sources": [
+        "GPS"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "mm/year",
+      "description": "Land motion due to ice loading changes",
+      "applications": [
+        "Sea level studies",
+        "Land motion",
+        "Reference frame"
+      ]
+    },
+    {
+      "id": "aco",
+      "variable": "Atmospheric CO",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "MOPITT",
+        "IASI",
+        "TES",
+        "AIRS"
+      ],
+      "models": [
+        "CMS-FLUX",
+        "MOMO-CHEM"
+      ],
+      "units": "ppbv",
+      "description": "Carbon monoxide in the atmosphere",
+      "applications": [
+        "Air quality",
+        "Pollution monitoring",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "ano2",
+      "variable": "Atmospheric NO2",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "OMI",
+        "TROPOMI",
+        "GOME-2"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "molec/cm²",
+      "description": "Nitrogen dioxide in the atmosphere",
+      "applications": [
+        "Air quality",
+        "Pollution monitoring",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "aso2",
+      "variable": "Atmospheric SO2",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "OMI",
+        "TROPOMI",
+        "GOME-2"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "DU",
+      "description": "Sulfur dioxide in the atmosphere",
+      "applications": [
+        "Air quality",
+        "Volcanic monitoring",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "anh3",
+      "variable": "Atmospheric NH3",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "IASI",
+        "CrIS"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "molec/cm²",
+      "description": "Ammonia in the atmosphere",
+      "applications": [
+        "Air quality",
+        "Agricultural emissions",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "ahcho",
+      "variable": "Atmospheric HCHO",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "OMI",
+        "TROPOMI",
+        "GOME-2"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "molec/cm²",
+      "description": "Formaldehyde in the atmosphere",
+      "applications": [
+        "Air quality",
+        "VOC emissions",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "aod",
+      "variable": "Aerosol Optical Depth",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "MODIS",
+        "MISR",
+        "AERONET"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "dimensionless",
+      "description": "Measure of aerosol loading in atmosphere",
+      "applications": [
+        "Air quality",
+        "Climate forcing",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "uai",
+      "variable": "UV Aerosol Index",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "OMI",
+        "TROPOMI"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "dimensionless",
+      "description": "UV-absorbing aerosol detection",
+      "applications": [
+        "Dust detection",
+        "Smoke monitoring",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "ao3",
+      "variable": "Atmospheric O3",
+      "category": "Atmospheric Composition",
+      "sources": [
+        "OMI",
+        "MLS",
+        "SBUV/2"
+      ],
+      "models": [
+        "MOMO-CHEM"
+      ],
+      "units": "DU",
+      "description": "Ozone in the atmosphere",
+      "applications": [
+        "Air quality",
+        "Ozone layer monitoring",
+        "Atmospheric chemistry"
+      ]
+    },
+    {
+      "id": "fgpp",
+      "variable": "Fluorescence-based GPP",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "GOME-2",
+        "TROPOMI",
+        "OCO-2"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "gC/m²/day",
+      "description": "Gross Primary Production from solar-induced fluorescence",
+      "applications": [
+        "Carbon cycle",
+        "Photosynthesis",
+        "Climate modeling"
+      ]
+    },
+    {
+      "id": "co2f",
+      "variable": "CO2 Flux",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "Eddy covariance towers"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "gC/m²/day",
+      "description": "Carbon dioxide flux between land and atmosphere",
+      "applications": [
+        "Carbon cycle",
+        "Ecosystem monitoring",
+        "Climate modeling"
+      ]
+    },
+    {
+      "id": "cof",
+      "variable": "CO Flux",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "MOPITT"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "gC/m²/day",
+      "description": "Carbon monoxide flux",
+      "applications": [
+        "Fire emissions",
+        "Atmospheric chemistry",
+        "Carbon cycle"
+      ]
+    },
+    {
+      "id": "ba",
+      "variable": "Burned Area",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "MODIS"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "m²",
+      "description": "Area affected by fires",
+      "applications": [
+        "Fire monitoring",
+        "Carbon emissions",
+        "Ecosystem dynamics"
+      ]
+    },
+    {
+      "id": "lai",
+      "variable": "Leaf Area Index",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "MODIS"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "m²/m²",
+      "description": "Leaf area per unit ground area",
+      "applications": [
+        "Vegetation monitoring",
+        "Carbon cycle",
+        "Climate modeling"
+      ]
+    },
+    {
+      "id": "biomass",
+      "variable": "Biomass",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "Various sources"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "gC/m²",
+      "description": "Above and below ground biomass",
+      "applications": [
+        "Carbon storage",
+        "Ecosystem monitoring",
+        "Climate modeling"
+      ]
+    },
+    {
+      "id": "som",
+      "variable": "Soil Organic Matter",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "Various sources"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "gC/m²",
+      "description": "Organic carbon in soil",
+      "applications": [
+        "Carbon storage",
+        "Soil health",
+        "Climate modeling"
+      ]
+    },
+    {
+      "id": "aco2",
+      "variable": "Atmospheric CO2",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "OCO-2",
+        "OCO-3",
+        "GOSAT",
+        "TCCON",
+        "in-situ"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "ppm",
+      "description": "Carbon dioxide concentration in atmosphere",
+      "applications": [
+        "Climate monitoring",
+        "Carbon cycle",
+        "Policy"
+      ]
+    },
+    {
+      "id": "ach4",
+      "variable": "Atmospheric CH4",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "GOSAT",
+        "TROPOMI",
+        "in-situ"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "ppb",
+      "description": "Methane concentration in atmosphere",
+      "applications": [
+        "Climate monitoring",
+        "Carbon cycle",
+        "Greenhouse gas tracking"
+      ]
+    },
+    {
+      "id": "aco_card",
+      "variable": "Atmospheric CO",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "MOPITT",
+        "IASI"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "ppbv",
+      "description": "Carbon monoxide in atmosphere for carbon cycle",
+      "applications": [
+        "Fire emissions",
+        "Atmospheric chemistry",
+        "Carbon cycle"
+      ]
+    },
+    {
+      "id": "fe",
+      "variable": "Fire Emissions",
+      "category": "Carbon Cycle Components",
+      "sources": [
+        "MODIS",
+        "VIIRS"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "gC/m²/day",
+      "description": "Carbon emissions from fires",
+      "applications": [
+        "Fire monitoring",
+        "Carbon cycle",
+        "Air quality"
+      ]
+    },
+    {
+      "id": "met",
+      "variable": "Meteorology",
+      "category": "Climate and Reanalysis",
+      "sources": [
+        "ERA5",
+        "MERRA-2",
+        "JRA-55"
+      ],
+      "models": [
+        "CMS-FLUX",
+        "MOMO-CHEM"
+      ],
+      "units": "various",
+      "description": "Meteorological variables from reanalysis",
+      "applications": [
+        "Weather forecasting",
+        "Climate studies",
+        "Model forcing"
+      ]
+    },
+    {
+      "id": "clim",
+      "variable": "Climatology",
+      "category": "Climate and Reanalysis",
+      "sources": [
+        "ERA5",
+        "MERRA-2"
+      ],
+      "models": [
+        "ISSM"
+      ],
+      "units": "various",
+      "description": "Long-term climate averages",
+      "applications": [
+        "Climate baseline",
+        "Anomaly detection",
+        "Model validation"
+      ]
+    },
+    {
+      "id": "era5",
+      "variable": "ERA5",
+      "category": "Climate and Reanalysis",
+      "sources": [
+        "ECMWF Reanalysis"
+      ],
+      "models": [
+        "CARDAMOM"
+      ],
+      "units": "various",
+      "description": "ECMWF reanalysis product",
+      "applications": [
+        "Climate studies",
+        "Model forcing",
+        "Historical analysis"
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "name": "GRACE",
+      "fullName": "Gravity Recovery and Climate Experiment",
+      "agency": "NASA/DLR",
+      "launchDate": "2002-03-17",
+      "status": "Completed",
+      "description": "Twin satellites measuring Earth's gravity field changes"
+    },
+    {
+      "name": "GRACE-FO",
+      "fullName": "Gravity Recovery and Climate Experiment Follow-On",
+      "agency": "NASA/GFZ",
+      "launchDate": "2018-05-22",
+      "status": "Active",
+      "description": "Continuation of GRACE mission with improved technology"
+    },
+    {
+      "name": "ICESat",
+      "fullName": "Ice, Cloud and Land Elevation Satellite",
+      "agency": "NASA",
+      "launchDate": "2003-01-12",
+      "status": "Completed",
+      "description": "Laser altimetry for ice sheet elevation measurements"
+    },
+    {
+      "name": "ICESat-2",
+      "fullName": "Ice, Cloud and Land Elevation Satellite 2",
+      "agency": "NASA",
+      "launchDate": "2018-09-15",
+      "status": "Active",
+      "description": "Advanced laser altimetry for precise elevation measurements"
+    },
+    {
+      "name": "OCO-2",
+      "fullName": "Orbiting Carbon Observatory 2",
+      "agency": "NASA",
+      "launchDate": "2014-07-02",
+      "status": "Active",
+      "description": "Precise measurements of atmospheric CO2"
+    },
+    {
+      "name": "MODIS",
+      "fullName": "Moderate Resolution Imaging Spectroradiometer",
+      "agency": "NASA",
+      "launchDate": "1999-12-18",
+      "status": "Active",
+      "description": "Multi-spectral Earth observation instrument"
+    }
+  ]
+}

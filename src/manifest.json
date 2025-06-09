@@ -1,0 +1,28 @@
+{
+  "name": "Earth System Model Data Assimilation Visualization",
+  "short_name": "ESM Viz",
+  "description": "Interactive visualization of Earth System Model Data Assimilation relationships between variables, missions, and models",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "any",
+  "scope": "./",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/images/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["education", "science", "utilities"],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Earth System Model Visualization Dashboard"
+    }
+  ]
+}
