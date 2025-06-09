@@ -9,9 +9,16 @@ class DataManager {
     
     // Detect if we're running on GitHub Pages or locally
     const isGitHubPages = window.location.hostname === 'yunks128.github.io';
-    const basePath = isGitHubPages ? '/earth-system-model-viz/' : '/';
     
-    this.dataUrl = basePath + 'data/earth-system-data.json';
+    if (isGitHubPages) {
+      // Use absolute URL for GitHub Pages
+      this.dataUrl = 'https://yunks128.github.io/earth-system-model-viz/data/earth-system-data.json';
+    } else {
+      // Use relative URL for local development
+      this.dataUrl = 'data/earth-system-data.json';
+    }
+    
+    console.log('🔍 DataManager initialized with URL:', this.dataUrl);
   }
   
   /**
@@ -49,6 +56,9 @@ class DataManager {
       
     } catch (error) {
       console.error('❌ Failed to load data:', error);
+      console.error('🌐 Attempted URL:', this.dataUrl);
+      console.error('🔗 Current location:', window.location.href);
+      console.error('🏠 Hostname:', window.location.hostname);
       
       // Try to load fallback data
       return this.loadFallbackData();
