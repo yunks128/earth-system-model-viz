@@ -6,7 +6,12 @@
 class DataManager {
   constructor() {
     this.cache = new Map();
-    this.dataUrl = 'data/earth-system-data.json';
+    
+    // Detect if we're running on GitHub Pages or locally
+    const isGitHubPages = window.location.hostname === 'yunks128.github.io';
+    const basePath = isGitHubPages ? '/earth-system-model-viz/' : '/';
+    
+    this.dataUrl = basePath + 'data/earth-system-data.json';
   }
   
   /**
