@@ -12,6 +12,7 @@ class EarthSystemViz {
     this.currentFilter = 'all';
     this.currentSearch = '';
     this.currentView = 'cards';
+    this.currentNetworkView = 'comprehensive';
     this.isLoading = true;
     
     // Component instances
@@ -113,6 +114,8 @@ class EarthSystemViz {
       networkCanvas: document.getElementById('networkCanvas'),
       networkReset: document.getElementById('networkReset'),
       networkExport: document.getElementById('networkExport'),
+      comprehensiveView: document.getElementById('comprehensiveView'),
+      simpleView: document.getElementById('simpleView'),
       
       // Table
       dataTable: document.getElementById('dataTable'),
@@ -201,6 +204,15 @@ class EarthSystemViz {
     
     this.elements.networkExport?.addEventListener('click', () => {
       this.networkView.exportImage();
+    });
+    
+    // Network view toggle
+    this.elements.comprehensiveView?.addEventListener('click', () => {
+      this.switchNetworkView('comprehensive');
+    });
+    
+    this.elements.simpleView?.addEventListener('click', () => {
+      this.switchNetworkView('simple');
     });
     
     // Table controls
@@ -339,7 +351,10 @@ class EarthSystemViz {
         
         // Initialize network view if not already done
         setTimeout(() => {
+          const isSimpleView = this.currentNetworkView === 'simple';
           this.networkView.init(this.elements.networkCanvas, this.filteredData, this.data.models);
+          this.networkView.processData(this.filteredData, this.data.models, isSimpleView);
+          this.networkView.setupSimulation();
         }, 100);
         break;
         
@@ -351,6 +366,74 @@ class EarthSystemViz {
         
         this.renderTable();
         break;
+    }
+  }
+  
+  /**
+   * Switch between comprehensive and simple network views
+   */
+  switchNetworkView(viewType) {
+    // Update button states
+    this.elements.comprehensiveView?.classList.toggle('active', viewType === 'comprehensive');
+    this.elements.simpleView?.classList.toggle('active', viewType === 'simple');
+    
+    this.currentNetworkView = viewType;
+    
+    // Reinitialize network view if currently showing
+    if (this.currentView === 'network' && this.networkView && this.elements.networkCanvas) {
+      const isSimpleView = viewType === 'simple';
+      this.networkView.processData(this.filteredData, this.data.models, isSimpleView);
+      this.networkView.setupSimulation();
+    }
+    
+    // Update legend
+    this.updateNetworkLegend(viewType);
+    
+    // Analytics tracking
+    this.trackEvent('network_view_change', { view: viewType });
+  }
+  
+  /**
+   * Update network legend based on view type
+   */
+  updateNetworkLegend(viewType) {
+    const legendItems = document.getElementById('legendItems');
+    if (!legendItems) return;
+    
+    if (viewType === 'simple') {
+      legendItems.innerHTML = `
+        <div class="legend-item">
+          <span class="legend-color category-node" style="background: #667eea; border: 3px dashed white;"></span>
+          <span>Variable Categories (Center)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color mission-node" style="background: #43e97b; border: 2px solid white;"></span>
+          <span>Primary Sources/Missions (Inner Ring)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color model-node" style="background: #f093fb; border: 3px solid white;"></span>
+          <span>JPL Models (Outer Ring)</span>
+        </div>
+      `;
+    } else {
+      legendItems.innerHTML = `
+        <div class="legend-item">
+          <span class="legend-color category-node" style="background: #4facfe; border: 3px dashed white;"></span>
+          <span>Categories (Center)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color variable-node" style="background: #7cc4ff; border: 2px solid white;"></span>
+          <span>Variables (Inner Ring)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color model-node" style="background: #667eea; border: 3px solid white;"></span>
+          <span>Models (Strategic Positions)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color source-node" style="background: #ffa726; border: 1px solid white;"></span>
+          <span>Data Sources/Missions (Outer Ring)</span>
+        </div>
+      `;
     }
   }
   

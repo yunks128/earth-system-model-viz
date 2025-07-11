@@ -176,6 +176,10 @@
                 <div class="network-controls">
                     <button class="network-btn" id="networkReset">Reset View</button>
                     <button class="network-btn" id="networkExport">Export Image</button>
+                    <div class="network-view-toggle">
+                        <button class="view-toggle-btn active" id="comprehensiveView">Comprehensive View</button>
+                        <button class="view-toggle-btn" id="simpleView">Simple Network View</button>
+                    </div>
                     <div class="network-toggles">
                         <label class="network-toggle">
                             <input type="checkbox" id="showModels" checked> Models
@@ -193,21 +197,21 @@
                 </div>
                 <canvas id="networkCanvas" aria-label="Interactive network graph showing model relationships"></canvas>
                 <div class="network-legend">
-                    <h4>Network Legend</h4>
-                    <div class="legend-section">
+                    <h4 id="legendTitle">Network Legend</h4>
+                    <div class="legend-section" id="legendNodeTypes">
                         <h5>Node Types</h5>
-                        <div class="legend-items">
+                        <div class="legend-items" id="legendItems">
                             <div class="legend-item">
-                                <span class="legend-color model-node" style="background: #667eea; border: 3px solid white;"></span>
-                                <span>Earth System Models (Center)</span>
+                                <span class="legend-color category-node" style="background: #4facfe; border: 3px dashed white;"></span>
+                                <span>Categories (Center)</span>
                             </div>
                             <div class="legend-item">
-                                <span class="legend-color variable-node" style="background: #43e97b; border: 2px solid white;"></span>
+                                <span class="legend-color variable-node" style="background: #7cc4ff; border: 2px solid white;"></span>
                                 <span>Variables (Inner Ring)</span>
                             </div>
                             <div class="legend-item">
-                                <span class="legend-color category-node" style="background: #fa709a; border: 2px dashed white;"></span>
-                                <span>Categories (Center Ring)</span>
+                                <span class="legend-color model-node" style="background: #667eea; border: 3px solid white;"></span>
+                                <span>Models (Strategic Positions)</span>
                             </div>
                             <div class="legend-item">
                                 <span class="legend-color source-node" style="background: #ffa726; border: 1px solid white;"></span>
@@ -219,28 +223,17 @@
                         <h5>Connection Types</h5>
                         <div class="legend-items">
                             <div class="legend-item">
-                                <span class="legend-line" style="background: #667eea; height: 2px;"></span>
-                                <span>Variable ↔ Model</span>
+                                <span class="legend-line" style="background: #43e97b; height: 2px;"></span>
+                                <span>Category ↔ Variable</span>
                             </div>
                             <div class="legend-item">
-                                <span class="legend-line" style="background: #43e97b; height: 3px;"></span>
-                                <span>Variable ↔ Category</span>
+                                <span class="legend-line" style="background: #667eea; height: 1.5px;"></span>
+                                <span>Variable ↔ Model</span>
                             </div>
                             <div class="legend-item">
                                 <span class="legend-line dashed" style="background: #ffa726; height: 1px;"></span>
                                 <span>Variable ↔ Data Source</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="legend-section">
-                        <h5>Data Source Types</h5>
-                        <div class="legend-items legend-compact">
-                            <div class="legend-item"><span style="color: #8bc34a;">●</span> Gravity Missions</div>
-                            <div class="legend-item"><span style="color: #00bcd4;">●</span> Ice/Elevation</div>
-                            <div class="legend-item"><span style="color: #ff5722;">●</span> Optical Sensors</div>
-                            <div class="legend-item"><span style="color: #2196f3;">●</span> Altimetry</div>
-                            <div class="legend-item"><span style="color: #4caf50;">●</span> Soil/Salinity</div>
-                            <div class="legend-item"><span style="color: #00acc1;">●</span> In-situ Ocean</div>
                         </div>
                     </div>
                     <div style="margin-top: 10px; font-size: 0.8em; color: #666;">
